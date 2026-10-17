@@ -1,30 +1,60 @@
-Student Study & Assignment Planner
+# Student Study & Assignment Planner
 
-This project is a Java application designed to help college students keep track of their courses, assignments, due dates, priorities, and study tasks.
-Project Purpose
-The main idea of this project is to make it easier for students to organize their schoolwork in one place. The planner will allow students to keep track of assignments and find the assignments that need attention.
-Current Features
-* Store assignment information
-* Search for an assignment using its assignment ID
-* Use sequential search as the baseline search method
-* Handle assignments that are not found
-* Handle empty lists and invalid search input
-  Baseline Algorithm
-  The baseline operation for this milestone is searching for an assignment by its assignment ID.
-  The program checks each assignment in the list one at a time until it finds the matching ID. If there is no matching ID, the method returns null.
-  The expected time complexity is:
-* Best case: O(1)
-* Average case: O(n)
-* Worst case: O(n)
-* Auxiliary space: O(1)
-  Testing
-  JUnit is being used to test the search method. There are currently 7 automated tests. The tests check successful searches, assignments that are not found, an empty list, a single-item list, and invalid input.
-  Technology
-* Java
-* IntelliJ IDEA
-* JUnit
-* Git
-  Future Development
-  In future milestones, I plan to add more features and data structures to the project. These may include improved searching, sorting, maps, priority queues, and other data structures that can help organize the student planner.
-  AI Use Disclosure
-  I used AI tools to help me understand the assignment requirements, organize my project plan, and improve some of the wording. I reviewed the information and am responsible for understanding, testing, and submitting my own project.
+## Project Overview
+
+This Java application helps college students organize their assignments, courses, due dates, priorities, and completion status.
+
+## Project Purpose
+
+The goal is to make it easier for students to manage schoolwork in one place. Students can organize assignments, find specific tasks, update assignment details, remove assignments, and view task summaries.
+
+## Main Classes
+
+- **Student:** Stores the student's ID and name and provides access to the student's planner.
+- **StudyPlanner:** Manages assignments using an ArrayList and supports adding, retrieving, updating, removing, and summarizing tasks.
+- **ProjectTask:** Represents an assignment with an ID, title, course, due date, priority, and completion status.
+
+## Current Features
+
+- Store assignment information.
+- Search for assignments by assignment ID using sequential search.
+- Add new assignments and reject duplicate IDs.
+- Retrieve, update, and remove assignments.
+- Track completed and incomplete assignments.
+- Display all assignments in insertion order.
+- Validate required information and handle invalid input.
+
+## Baseline Algorithm
+
+The baseline algorithm searches for an assignment by its ID using sequential search. It checks tasks one at a time until it finds a match or reaches the end of the list.
+
+- Best-case time complexity: O(1)
+- Average-case time complexity: O(n)
+- Worst-case time complexity: O(n)
+- Auxiliary space complexity: O(1)
+
+Here, n is the number of assignments in the list.
+
+## Testing
+
+JUnit 5 is used for automated testing. The project currently reports 24 passing tests. Tests cover sequential search, assignment management, invalid input, duplicate IDs, updates, removals, and task summaries.
+
+## Technology
+
+- Java
+- IntelliJ IDEA
+- JUnit 5
+- Git
+
+## Documentation
+
+- `class-diagram.md` describes the main classes and their relationships.
+- `complexity-analysis.md` explains the time and space complexity of the main operations.
+
+## Future Development
+
+Possible improvements include sorting assignments, using a HashMap for faster ID lookups, and adding more study-planning features.
+
+## AI Use Disclosure
+
+AI tools were used to help understand project requirements and discuss implementation and documentation. The project author is responsible for reviewing the code, understanding the design, testing the application, and ensuring that the final submission follows course policies.

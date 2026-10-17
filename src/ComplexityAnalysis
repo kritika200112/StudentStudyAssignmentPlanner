@@ -1,0 +1,29 @@
+# Time Complexity Analysis
+
+## Project Overview
+
+The Student Study & Assignment Planner uses an ArrayList
+to store assignment tasks. The planner supports adding,
+searching, updating, removing, and displaying assignments.
+
+## Time Complexity
+
+| Operation | Time Complexity | Explanation |
+|---|---|---|
+| Add a task | O(n) | Checks for a duplicate ID before adding the task. |
+| Search for a task | O(n) | May examine every task to find the assignment ID. |
+| Retrieve a task | O(n) | Searches for the requested assignment ID. |
+| Update a task | O(n) | Searches for the task before changing its details. |
+| Remove a task | O(n) | Searches for the task and may shift remaining list elements. |
+| Display all tasks | O(n) | Visits each task in the list. |
+| Count completed tasks | O(n) | Checks every task to count completed assignments. |
+| Count all tasks | O(1) | Returns the list's size. |
+
+Here, n represents the number of assignments stored
+in the planner.
+
+## Space Complexity
+
+The planner uses O(n) space to store n assignment tasks.
+The getAllTasks() method also creates a copy of the list,
+which requires O(n) additional space.

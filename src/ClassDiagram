@@ -1,0 +1,33 @@
+# Class Diagram
+
+## Student
+- studentId: String
+- name: String
+- studyPlanner: StudyPlanner
+- updateName()
+- getAssignmentCount()
+
+## StudyPlanner
+- tasks: List<ProjectTask>
+- addTask()
+- getTask()
+- updateTask()
+- removeTask()
+- getAllTasks()
+- getCompletedTaskCount()
+- getIncompleteTaskCount()
+
+## ProjectTask
+- assignmentId: String
+- title: String
+- course: String
+- dueDate: String
+- priority: int
+- completed: boolean
+- markCompleted()
+- Getters and setters
+
+## Relationships
+- Student owns one StudyPlanner.
+- StudyPlanner manages multiple ProjectTask objects.
+
