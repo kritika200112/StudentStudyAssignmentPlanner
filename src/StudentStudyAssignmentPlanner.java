@@ -1,4 +1,3 @@
-
 public class StudentStudyAssignmentPlanner {
 
     public static void main(String[] args) {
@@ -6,17 +5,30 @@ public class StudentStudyAssignmentPlanner {
         Student student = new Student("S101", "Kritika");
         StudyPlanner planner = student.getStudyPlanner();
 
-        planner.addTask(new ProjectTask(
+        TaskProcessingQueue queue = new TaskProcessingQueue();
+
+        ProjectTask task1 = new ProjectTask(
                 "A101", "Calculus Homework", "MTH 264",
-                "2026-10-20", 1, false));
+                "2026-10-20", 1, false);
 
-        planner.addTask(new ProjectTask(
+        ProjectTask task2 = new ProjectTask(
                 "A102", "Java Project", "CSC 223",
-                "2026-10-22", 2, false));
+                "2026-10-22", 2, false);
 
-        planner.addTask(new ProjectTask(
+        ProjectTask task3 = new ProjectTask(
                 "A103", "Geology Lab", "GOL 105",
-                "2026-10-24", 3, true));
+                "2026-10-24", 3, true);
+
+        planner.addTask(task1);
+        planner.addTask(task2);
+        planner.addTask(task3);
+
+        // Add incomplete assignments to the processing queue.
+        for (ProjectTask task : planner.getAllTasks()) {
+            if (!task.isCompleted()) {
+                queue.addTask(task);
+            }
+        }
 
         System.out.println("Student Study & Assignment Planner");
         System.out.println("----------------------------------");
@@ -27,6 +39,22 @@ public class StudentStudyAssignmentPlanner {
         for (ProjectTask task : planner.getAllTasks()) {
             System.out.println(task);
         }
+
+        System.out.println("\nAssignments waiting: " + queue.size());
+
+        if (!queue.isEmpty()) {
+            System.out.println("Next assignment: "
+                    + queue.peekNextTask().getTitle());
+        }
+
+        System.out.println("\nProcessing assignments:");
+        while (!queue.isEmpty()) {
+            ProjectTask processed = queue.processNextTask();
+            System.out.println("Processed: " + processed.getTitle()
+                    + " | Completed: " + processed.isCompleted());
+        }
+
+        System.out.println("\nQueue empty: " + queue.isEmpty());
 
         System.out.println("\nAssignment summary:");
         System.out.println("Total: " + student.getAssignmentCount());

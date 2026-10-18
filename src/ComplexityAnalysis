@@ -1,29 +1,16 @@
-# Time Complexity Analysis
-
-## Project Overview
-
-The Student Study & Assignment Planner uses an ArrayList
-to store assignment tasks. The planner supports adding,
-searching, updating, removing, and displaying assignments.
-
-## Time Complexity
-
-| Operation | Time Complexity | Explanation |
-|---|---|---|
-| Add a task | O(n) | Checks for a duplicate ID before adding the task. |
-| Search for a task | O(n) | May examine every task to find the assignment ID. |
-| Retrieve a task | O(n) | Searches for the requested assignment ID. |
-| Update a task | O(n) | Searches for the task before changing its details. |
-| Remove a task | O(n) | Searches for the task and may shift remaining list elements. |
-| Display all tasks | O(n) | Visits each task in the list. |
-| Count completed tasks | O(n) | Checks every task to count completed assignments. |
-| Count all tasks | O(1) | Returns the list's size. |
-
-Here, n represents the number of assignments stored
-in the planner.
-
-## Space Complexity
-
-The planner uses O(n) space to store n assignment tasks.
-The getAllTasks() method also creates a copy of the list,
-which requires O(n) additional space.
+Milestone 4: Task Processing Queue
+Time Complexity
+The task processing queue uses Java’s ArrayDeque to store assignments in FIFO order. This means the first assignment added to the queue is the first one processed.
+* Add a task: O(n), because the queue checks existing tasks to prevent duplicate assignment IDs.
+* View the next task: O(1), because it reads the first task without removing it.
+* Process the next task: O(1), because it removes the first task and marks it as completed.
+* Check the queue size or whether it is empty: O(1).
+* Get all waiting tasks: O(n), because it creates a copy of the queue.
+* Clear the queue: O(n), because it removes the waiting tasks.
+Here, n represents the number of tasks in the queue.
+Space Complexity
+The queue uses O(n) space because it stores the waiting assignments. The method that returns all waiting tasks also uses O(n) extra space to create a copy of the queue.
+Design Choice
+I chose a FIFO queue because assignments should be processed in the same order they are added. An ArrayDeque is suitable for this workflow because it supports efficient insertion at the rear and removal from the front. A stack would process the newest task first, which would not fit this workflow as well.
+Limitations
+The queue currently processes assignments in their insertion order and does not prioritize tasks by due date or priority level. It also does not automatically synchronize queue membership when tasks are changed or removed elsewhere in the application. These features could be added in a future version.
